@@ -40,6 +40,7 @@ locals {
         }
         nodePools = [for i in var.node_pools :
           {
+            labels       = i.labels
             name         = i.name
             replicas     = i.count
             storageClass = i.storage_class

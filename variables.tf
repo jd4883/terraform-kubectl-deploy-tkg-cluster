@@ -3,43 +3,43 @@ variable "api_version" {
   default = "run.tanzu.vmware.com/v1alpha2"
 }
 
-variable "sensitive_fields"{
-  type = list(string)
+variable "sensitive_fields" {
+  type    = list(string)
   default = ["data"]
 }
 
 variable "force_new" {
-  type = bool
+  type    = bool
   default = false
 }
 
 variable "validate_schema" {
-  type = bool
+  type    = bool
   default = true
 }
 
 variable "wait_for_rollout" {
-  type = bool
+  type    = bool
   default = true
 }
 
 variable "server_side_apply" {
-  type = bool
+  type    = bool
   default = false
 }
 
 variable "override_namespace" {
-  type = string
+  type    = string
   default = ""
 }
 
 variable "wait" {
-  type = bool
+  type    = bool
   default = true
 }
 
 variable "ignore_fields" {
-  type = list(string)
+  type    = list(string)
   default = []
 }
 
@@ -51,6 +51,7 @@ variable "control_plane_vm_count" {
 variable "node_pools" {
   type = list(object(
     {
+      labels        = optional(map(string))
       name          = string
       count         = number
       storage_class = string
